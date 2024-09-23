@@ -5,17 +5,22 @@ const History = document.querySelector<HTMLInputElement>("#History")
 let input = false;
 //toggle stores the display value
 let history: any = "";
+let checkIfbye: boolean = false;
+let Checkdecimal: boolean = true;
 
 //Resets the Calculator
 const AC = document.querySelector<HTMLButtonElement>("#AC")
 AC?.addEventListener("click", () => {
     if (Display) Display.value = "0";
     if (History) History.value = "";
-    Enabled();
-    Display?.classList.remove("background");
-    History?.classList.remove("background");
-    Display?.classList.remove("textanimation");
-    clearTimeout(1000);
+
+    if (checkIfbye) {
+        Enabled();
+        Display?.classList.remove("background");
+        History?.classList.remove("background");
+        Display?.classList.remove("textanimation");
+        clearTimeout(1000);
+    } 
 });;
 
 //Stores the id of the numbers in an array
@@ -31,6 +36,7 @@ Buttons.forEach(num => { //goes through the array
             if (Display!.value === "0") {
                 if (num === "Dec") {
                     if (!Display.value.includes(".")) {
+                        Checkdecimal = false
                         Display!.value += "."; //adds the decimal instead of replacing the 0
                     }
                 } else {
@@ -39,7 +45,8 @@ Buttons.forEach(num => { //goes through the array
                 }
             } else {
                 if (num === "Dec") {
-                    if (!Display.value.includes(".")) {
+                    if (Checkdecimal) {
+                        Checkdecimal = false
                         Display!.value += "."; //prevents from having two decimals
                     } 
                 } else Display!.value += num[1];
@@ -52,6 +59,9 @@ Buttons.forEach(num => { //goes through the array
 //takes the last index of the text and deletes it
 const Del = document.querySelector<HTMLButtonElement>("#Del")
 Del?.addEventListener("click", () => {
+    if (input) {
+        Display!.value = "0"
+    }
     if (Display!.value.length > 1) Display!.value = `${Display?.value.slice(0, -1)}`;
     else Display!.value = "0";
 });
@@ -74,6 +84,8 @@ Operations.forEach(signs => {
                     Display!.value += "÷";
                 }
                 if (signs === "Multiply") Display!.value += "×";
+            input = false
+            Checkdecimal = true
             }
         })
     })
@@ -81,10 +93,17 @@ Operations.forEach(signs => {
 //performs the solving
 const Enter = document.querySelector<HTMLButtonElement>("#Equal")
 Enter?.addEventListener("click", () => { 
-    const solved = history.replace("−", "-").replace("÷", "/").replace("×", "*")
-    Display!.value = `${eval(solved)}`.slice(0,16);
-    History!.value = `${history} = ${Display!.value}`;
-    input = true;
+    if (Display!.value === "0") {
+        Display!.value = "0"
+    } else {
+        Checkdecimal = true
+        console.log(history)
+        const solved = history.replaceAll("−", "-").replaceAll("÷", "/").replaceAll("×", "*")
+        console.log(solved)
+        Display!.value = `${eval(solved)}`.slice(0,16);
+        History!.value = `${history} = ${Display!.value}`;
+        input = true;
+    }
 });
 
 //says the goodbye message on screen
@@ -106,6 +125,7 @@ function Off() {
 
 //Disables all Button
 function Disabled() {
+    checkIfbye = true
     Operations.forEach(signs => {
         const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) //goes over them and quqeries over them in the document
         if (Operaters) Operaters.disabled = true;
@@ -133,14 +153,16 @@ function Enabled() {
         if (button) button.disabled = false;
     })
     
-    if (AC) AC.disabled = true;
-    if (Hello) Hello.disabled = true;
+    if (AC) AC.disabled = false;
+    if (Hello) Hello.disabled = false;
     if (Enter) Enter.disabled = false;
     if (Del) Del.disabled = false;
 }
 
 const Hello = document.querySelector<HTMLButtonElement>("#Hello")
 Hello?.addEventListener("click", () => {
+    input=true;
     const greetings = ["Hola", "Kamusta", "Konichiwa", "Ciao", "Salaam", "Namaste", "Hallo", "Bonjour"]
     Display!.value = greetings[Math.floor(Math.random() * 8)];
 });
+

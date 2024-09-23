@@ -1,12 +1,12 @@
-body {
-}
+/* body {
+} */
 
 @media (max-width:1600px) {
   #Calculator{
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     position: relative;
-    left: 33rem;
+    left: 30rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
     width: 27rem;
@@ -77,141 +77,1304 @@ body {
     border-bottom-left-radius: 5rem;
     border-bottom-right-radius: 5rem;
   }
-}
-
-button {
-  height: 6rem;
-  border-radius: 3rem;
-  font-size: 2rem;
-  font-family:'Courier New', Courier, monospace;
-  border-radius: 8rem;
-  transform: scale(0.8);
-  transition: 0.2s ease-in-out;
-  border: 0.1rem solid;
-} 
-
-button:disabled {
-    background-color: #ccc; 
-    color: #000; 
+  button {
+    height: 6rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 8rem;
+    transform: scale(0.8);
+    transition: 0.2s ease-in-out;
+    border: 0.1rem solid;
+  } 
   
-}
-
-button:hover {
-  transform: scale(0.85);
-  background-color:rgb(136, 133, 133);
-  color: rgb(37, 37, 37);
-  font-size: 2rem;
-  font-weight: 800;
-}
-
-button:active {
-  transform: scale(0.83);
-}
-
-#AC {
-  top: 0.5rem;
-  color: rgb(255, 153, 0);
-  width: 7.3rem ;
-  position: relative;
-  font-weight: bold;
-  transform: scale(0.7);
-  background-color: rgb(212, 151, 59);
-  text-shadow: 0.1rem 0.1rem 0.1rem rgb(0, 0, 0);
-}
-
-#AC:hover {
-  color: whitesmoke;
-}
-
-#Hello {
-  font-size: 1.3rem;
-  font-weight: 800;
-  top: 0.5rem;
-  height: 3rem;
-  width: 6rem;
-  position: relative;
-  background-color: rgb(243, 141, 0);
-  left: 0.5rem;
-}
-#Bye {
-  font-size: 1.3rem;
-  font-weight: 800;
-  top: 3rem;
-  right: 6rem;
-  width: 6rem;
-  height: 3rem;
-  position: relative;
-  background-color: rgb(228, 137, 9);
-  left: -5.5rem;
-}
-
-#Del {
-  top: 3rem;
-  right: 0.3rem;
-  position: relative;
-  height: 3rem;
-  width: 7rem;
-  font-weight: 800;
-  font-size: 1.5rem;
-}
-
-#Del:hover{
-  color: whitesmoke;
-  transform: scale(0.83);
-}
-
-#Del:active {
-  transform: scale(0.8);
-}
-
-#b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0, #Dec {
-  position: relative;
-  left: 0.5rem;
-  background-color: rgb(207, 208, 201);
-  text-shadow: 0.1rem 0.1rem 0.1rem rgb(18, 18, 18);
-}
-
-
-#Equal{
-  position: relative;
-  right: 0.2rem;
-  width: 7.5rem;
-  font-weight: 800;
-  background-color: rgb(196, 124, 23);
-}
-
-#Add, #Multiply, #Div, #Sub  {
-  position: relative;
-  left: 0.5rem;
-  font-weight: 800;
-  background-color: rgb(201, 204, 186);
-
-
-}
-
-img{
-  position: fixed;
-  background-size: cover;
-  transform: scale(1.1);
-  
-}
-
-.textanimation{
-  animation: revealText 1s linear;
-  overflow: hidden;
-}
-
-.background{
-  opacity: 0;
-}
-
-@keyframes revealText {
-  from {
-    transform: translateX(10.3rem);
-    width: 1rem;
+  button:disabled {
+      background-color: #ccc; 
+      color: #000; 
+    
   }
-  to {
-    transform: translateX(10.3rem);
-    width: 12.8rem;
+  
+  button:hover {
+    transform: scale(0.85);
+    background-color:rgb(136, 133, 133);
+    color: rgb(37, 37, 37);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  button:active {
+    transform: scale(0.83);
+  }
+  
+  #AC {
+    top: 0.5rem;
+    color: rgb(255, 153, 0);
+    width: 7.3rem ;
+    position: relative;
+    font-weight: bold;
+    transform: scale(0.7);
+    background-color: rgb(212, 151, 59);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(0, 0, 0);
+  }
+  
+  #AC:hover {
+    color: whitesmoke;
+  }
+  
+  #Hello {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 0.5rem;
+    height: 3rem;
+    width: 6rem;
+    position: relative;
+    background-color: rgb(243, 141, 0);
+    left: 0.5rem;
+  }
+  #Bye {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 3rem;
+    right: 6rem;
+    width: 6rem;
+    height: 3rem;
+    position: relative;
+    background-color: rgb(228, 137, 9);
+    left: -5.5rem;
+  }
+  
+  #Del {
+    top: 3rem;
+    right: 0.3rem;
+    position: relative;
+    height: 3rem;
+    width: 7rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  
+  #Del:hover{
+    color: whitesmoke;
+    transform: scale(0.83);
+  }
+  
+  #Del:active {
+    transform: scale(0.8);
+  }
+  
+  #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0, #Dec {
+    position: relative;
+    left: 0.5rem;
+    background-color: rgb(207, 208, 201);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(18, 18, 18);
+  }
+  
+  
+  #Equal{
+    position: relative;
+    right: 0.2rem;
+    width: 7.5rem;
+    font-weight: 800;
+    background-color: rgb(196, 124, 23);
+  }
+  
+  #Add, #Multiply, #Div, #Sub  {
+    position: relative;
+    left: 0.5rem;
+    font-weight: 800;
+    background-color: rgb(201, 204, 186);
+  
+  
+  }
+  
+  img{
+    position: fixed;
+    background-size: cover;
+    transform: scale(1.1);
+    
+  }
+  
+  .textanimation{
+    animation: revealText 1s linear;
+    overflow: hidden;
+  }
+  
+  .background{
+    opacity: 0;
+  }
+  
+  @keyframes revealText {
+    from {
+      transform: translateX(10.3rem);
+      width: 1rem;
+    }
+    to {
+      transform: translateX(10.3rem);
+      width: 12.8rem;
+    }
+  }
+  #cute{
+    transform: scale(0.15);
+    width: 27rem;
+    position: fixed;
+    top: -2.5rem;
+    left: 9rem;
+    opacity: 100%;
+  }
+ 
+    #cute1{
+      position: fixed;
+      top: -1.5rem;
+      left: 2rem;
+    }  
+}
+
+@media (max-width:1024px) {
+  #cute{
+    transform: scale(0.15);
+    width: 27rem;
+    position: fixed;
+    top: -2.5rem;
+    left: 9rem;
+    opacity: 100%;
+  }
+ 
+    #cute1{
+      position: fixed;
+      top: -1.5rem;
+      left: 2rem;
+    }  
+
+  #Calculator{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    position: relative;
+    left: 17.8rem;
+    top: 20rem;
+    background-color: rgb(212, 210, 208);
+    height: 40rem;
+    width: 27rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-bottom: 3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
+    transform: scale(1.7);
+  }
+
+  #CalcDisplay {
+    border-radius: 1.5rem;
+    width: 25rem;
+    left: 1.1rem;
+    top: 2rem;
+    height: 6.5rem;
+    position: relative;
+    background-color: rgb(63, 58, 58);
+    
+  }
+
+  #History {
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    border-radius: 1rem;
+    height: 1.3rem;
+    left: 7.8rem;
+    text-align: right;
+    top: 0.8rem;
+    position: relative;
+    background-color: rgb(151, 193, 169);
+    width: 15.8rem;
+    color: rgb(7, 7, 8);
+    font-family:monospace;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+  }
+
+  #Display{ 
+    text-align: right;
+    width: 24rem;
+    height: 2.6rem;
+    font-size: 2.6rem;
+    left: 0.7rem;
+    top: 5.6rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.007);
+    border: none;
+    color: rgb(248, 248, 248);
+    transition: 0.2s ease-in;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+  }
+
+  #Buttons {
+    display: grid;
+    grid-template-columns: repeat(4,6rem);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    top: 2.6rem;
+    left: 1.1rem;
+    position: relative;
+    width: 25rem;
+    height: 32rem;
+    background-color: rgb(63, 58, 58);
+    padding-bottom: 1.3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  button {
+    height: 6rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 8rem;
+    transform: scale(0.8);
+    transition: 0.2s ease-in-out;
+    border: 0.1rem solid;
+  } 
+  
+  button:disabled {
+      background-color: #ccc; 
+      color: #000; 
+    
+  }
+  
+  button:hover {
+    transform: scale(0.85);
+    background-color:rgb(136, 133, 133);
+    color: rgb(37, 37, 37);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  button:active {
+    transform: scale(0.83);
+  }
+  
+  #AC {
+    top: 0.5rem;
+    color: rgb(255, 153, 0);
+    width: 7.3rem ;
+    position: relative;
+    font-weight: bold;
+    transform: scale(0.7);
+    background-color: rgb(212, 151, 59);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(0, 0, 0);
+  }
+  
+  #AC:hover {
+    color: whitesmoke;
+  }
+  
+  #Hello {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 0.5rem;
+    height: 3rem;
+    width: 6rem;
+    position: relative;
+    background-color: rgb(243, 141, 0);
+    left: 0.5rem;
+  }
+  #Bye {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 3rem;
+    right: 6rem;
+    width: 6rem;
+    height: 3rem;
+    position: relative;
+    background-color: rgb(228, 137, 9);
+    left: -5.5rem;
+  }
+  
+  #Del {
+    top: 3rem;
+    right: 0.3rem;
+    position: relative;
+    height: 3rem;
+    width: 7rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  
+  #Del:hover{
+    color: whitesmoke;
+    transform: scale(0.83);
+  }
+  
+  #Del:active {
+    transform: scale(0.8);
+  }
+  
+  #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0, #Dec {
+    position: relative;
+    left: 0.5rem;
+    background-color: rgb(207, 208, 201);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(18, 18, 18);
+  }
+  
+  
+  #Equal{
+    position: relative;
+    right: 0.2rem;
+    width: 7.5rem;
+    font-weight: 800;
+    background-color: rgb(196, 124, 23);
+  }
+  
+  #Add, #Multiply, #Div, #Sub  {
+    position: relative;
+    left: 0.5rem;
+    font-weight: 800;
+    background-color: rgb(201, 204, 186);
+  
+  
+  }
+  
+  img{
+    position: fixed;
+    background-size: cover;
+    transform: scale(1.1);
+    
+  }
+  
+  .textanimation{
+    animation: revealText 1s linear;
+    overflow: hidden;
+  }
+  
+  .background{
+    opacity: 0;
+  }
+  
+  @keyframes revealText {
+    from {
+      transform: translateX(10.3rem);
+      width: 1rem;
+    }
+    to {
+      transform: translateX(10.3rem);
+      width: 12.8rem;
+    }
+  }
+}
+
+@media (max-width:835px) {
+  #cute{
+    transform: scale(0.15);
+    width: 27rem;
+    position: fixed;
+    top: -2.5rem;
+    left: 9rem;
+    opacity: 100%;
+  }
+ 
+    #cute1{
+      position: fixed;
+      top: -1.5rem;
+      left: 2rem;
+    }  
+
+  #Calculator{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    position: relative;
+    left:12.5rem;
+    top: 15rem;
+    background-color: rgb(212, 210, 208);
+    height: 40rem;
+    width: 27rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-bottom: 3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
+    transform: scale(1.5);
+  }
+
+  #CalcDisplay {
+    border-radius: 1.5rem;
+    width: 25rem;
+    left: 1.1rem;
+    top: 2rem;
+    height: 6.5rem;
+    position: relative;
+    background-color: rgb(63, 58, 58);
+    
+  }
+
+  #History {
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    border-radius: 1rem;
+    height: 1.3rem;
+    left: 7.8rem;
+    text-align: right;
+    top: 0.8rem;
+    position: relative;
+    background-color: rgb(151, 193, 169);
+    width: 15.8rem;
+    color: rgb(7, 7, 8);
+    font-family:monospace;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+  }
+
+  #Display{ 
+    text-align: right;
+    width: 24rem;
+    height: 2.6rem;
+    font-size: 2.6rem;
+    left: 0.3rem;
+    top: 5.6rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.007);
+    border: none;
+    color: rgb(248, 248, 248);
+    transition: 0.2s ease-in;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+  }
+
+  #Buttons {
+    display: grid;
+    grid-template-columns: repeat(4,6rem);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    top: 2.6rem;
+    left: 1.1rem;
+    position: relative;
+    width: 25rem;
+    height: 32rem;
+    background-color: rgb(63, 58, 58);
+    padding-bottom: 1.3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  button {
+    height: 6rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 8rem;
+    transform: scale(0.8);
+    transition: 0.2s ease-in-out;
+    border: 0.1rem solid;
+  } 
+  
+  button:disabled {
+      background-color: #ccc; 
+      color: #000; 
+    
+  }
+  
+  button:hover {
+    transform: scale(0.85);
+    background-color:rgb(136, 133, 133);
+    color: rgb(37, 37, 37);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  button:active {
+    transform: scale(0.83);
+  }
+  
+  #AC {
+    top: 0.5rem;
+    color: rgb(255, 153, 0);
+    width: 7.3rem ;
+    position: relative;
+    font-weight: bold;
+    transform: scale(0.7);
+    background-color: rgb(212, 151, 59);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(0, 0, 0);
+  }
+  
+  #AC:hover {
+    color: whitesmoke;
+  }
+  
+  #Hello {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 0.5rem;
+    height: 3rem;
+    width: 6rem;
+    position: relative;
+    background-color: rgb(243, 141, 0);
+    left: 0.5rem;
+  }
+  #Bye {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 3rem;
+    right: 6rem;
+    width: 6rem;
+    height: 3rem;
+    position: relative;
+    background-color: rgb(228, 137, 9);
+    left: -5.5rem;
+  }
+  
+  #Del {
+    top: 3rem;
+    right: 0.3rem;
+    position: relative;
+    height: 3rem;
+    width: 7rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  
+  #Del:hover{
+    color: whitesmoke;
+    transform: scale(0.83);
+  }
+  
+  #Del:active {
+    transform: scale(0.8);
+  }
+  
+  #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0, #Dec {
+    position: relative;
+    left: 0.5rem;
+    background-color: rgb(207, 208, 201);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(18, 18, 18);
+  }
+  
+  
+  #Equal{
+    position: relative;
+    right: 0.2rem;
+    width: 7.5rem;
+    font-weight: 800;
+    background-color: rgb(196, 124, 23);
+  }
+  
+  #Add, #Multiply, #Div, #Sub  {
+    position: relative;
+    left: 0.5rem;
+    font-weight: 800;
+    background-color: rgb(201, 204, 186);
+  
+  
+  }
+  
+  img{
+    position: fixed;
+    background-size: cover;
+    transform: scale(1.1);
+    
+  }
+  
+  .textanimation{
+    animation: revealText 1s linear;
+    overflow: hidden;
+  }
+  
+  .background{
+    opacity: 0;
+  }
+  
+  @keyframes revealText {
+    from {
+      transform: translateX(10.3rem);
+      width: 1rem;
+    }
+    to {
+      transform: translateX(10.3rem);
+      width: 12.8rem;
+    }
+  }
+}
+
+@media (max-width:432px) {
+  #cute{
+    transform: scale(0.15);
+    width: 27rem;
+    position: fixed;
+    top: -2.5rem;
+    left: 9rem;
+    opacity: 100%;
+  }
+ 
+    #cute1{
+      position: fixed;
+      top: -1.5rem;
+      left: 2rem;
+    }  
+
+  #Calculator{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    position: relative;
+    left: -0.5rem;
+    top: 1rem;
+    background-color: rgb(212, 210, 208);
+    height: 40rem;
+    width: 27rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-bottom: 3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
+    transform: scale(0.9);
+  }
+
+  #CalcDisplay {
+    border-radius: 1.5rem;
+    width: 25rem;
+    left: 1.1rem;
+    top: 2rem;
+    height: 6.5rem;
+    position: relative;
+    background-color: rgb(63, 58, 58);
+    
+  }
+
+  #History {
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    border-radius: 1rem;
+    height: 1.3rem;
+    left: 7.8rem;
+    text-align: right;
+    top: 0.8rem;
+    position: relative;
+    background-color: rgb(151, 193, 169);
+    width: 15.8rem;
+    color: rgb(7, 7, 8);
+    font-family:monospace;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+  }
+
+  #Display{ 
+    text-align: right;
+    width: 24rem;
+    height: 2.6rem;
+    font-size: 2.6rem;
+    left: 0rem;
+    top: 5.4rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.007);
+    border: none;
+    color: rgb(248, 248, 248);
+    transition: 0.2s ease-in;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+  }
+
+  #Buttons {
+    display: grid;
+    grid-template-columns: repeat(4,6rem);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    top: 2.6rem;
+    left: 1.1rem;
+    position: relative;
+    width: 25rem;
+    height: 32rem;
+    background-color: rgb(63, 58, 58);
+    padding-bottom: 1.3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  button {
+    height: 6rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 8rem;
+    transform: scale(0.8);
+    transition: 0.2s ease-in-out;
+    border: 0.1rem solid;
+  } 
+  
+  button:disabled {
+      background-color: #ccc; 
+      color: #000; 
+    
+  }
+  
+  button:hover {
+    transform: scale(0.85);
+    background-color:rgb(136, 133, 133);
+    color: rgb(37, 37, 37);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  button:active {
+    transform: scale(0.83);
+  }
+  
+  #AC {
+    top: 0.5rem;
+    color: rgb(255, 153, 0);
+    width: 7.3rem ;
+    position: relative;
+    font-weight: bold;
+    transform: scale(0.7);
+    background-color: rgb(212, 151, 59);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(0, 0, 0);
+  }
+  
+  #AC:hover {
+    color: whitesmoke;
+  }
+  
+  #Hello {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 0.5rem;
+    height: 3rem;
+    width: 6rem;
+    position: relative;
+    background-color: rgb(243, 141, 0);
+    left: 0.5rem;
+  }
+  #Bye {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 3rem;
+    right: 6rem;
+    width: 6rem;
+    height: 3rem;
+    position: relative;
+    background-color: rgb(228, 137, 9);
+    left: -5.5rem;
+  }
+  
+  #Del {
+    top: 3rem;
+    right: 0.3rem;
+    position: relative;
+    height: 3rem;
+    width: 7rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  
+  #Del:hover{
+    color: whitesmoke;
+    transform: scale(0.83);
+  }
+  
+  #Del:active {
+    transform: scale(0.8);
+  }
+  
+  #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0, #Dec {
+    position: relative;
+    left: 0.5rem;
+    background-color: rgb(207, 208, 201);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(18, 18, 18);
+  }
+  
+  
+  #Equal{
+    position: relative;
+    right: 0.2rem;
+    width: 7.5rem;
+    font-weight: 800;
+    background-color: rgb(196, 124, 23);
+  }
+  
+  #Add, #Multiply, #Div, #Sub  {
+    position: relative;
+    left: 0.5rem;
+    font-weight: 800;
+    background-color: rgb(201, 204, 186);
+  
+  
+  }
+  
+  img{
+    position: fixed;
+    background-size: cover;
+    transform: scale(1.1);
+    
+  }
+  
+  .textanimation{
+    animation: revealText 1s linear;
+    overflow: hidden;
+  }
+  
+  .background{
+    opacity: 0;
+  }
+  
+  @keyframes revealText {
+    from {
+      transform: translateX(10.3rem);
+      width: 1rem;
+    }
+    to {
+      transform: translateX(10.3rem);
+      width: 12.8rem;
+    }
+  }
+}
+
+@media (max-width:391px) {
+  #cute{
+    transform: scale(0.15);
+    width: 27rem;
+    position: fixed;
+    top: -2.5rem;
+    left: 9rem;
+    opacity: 100%;
+  }
+ 
+    #cute1{
+      position: fixed;
+      top: -1.5rem;
+      left: 2rem;
+    }  
+
+  #Calculator{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    position: relative;
+    left: -1.7rem;
+    top: 1rem;
+    background-color: rgb(212, 210, 208);
+    height: 40rem;
+    width: 27rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-bottom: 3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
+    transform: scale(0.85);
+  }
+
+  #CalcDisplay {
+    border-radius: 1.5rem;
+    width: 25rem;
+    left: 1.1rem;
+    top: 2rem;
+    height: 6.5rem;
+    position: relative;
+    background-color: rgb(63, 58, 58);
+    
+  }
+
+  #History {
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    border-radius: 1rem;
+    height: 1.3rem;
+    left: 7.8rem;
+    text-align: right;
+    top: 0.8rem;
+    position: relative;
+    background-color: rgb(151, 193, 169);
+    width: 15.8rem;
+    color: rgb(7, 7, 8);
+    font-family:monospace;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+  }
+
+  #Display{ 
+    text-align: right;
+    width: 24rem;
+    height: 2.6rem;
+    font-size: 2.6rem;
+    left: 0rem;
+    top: 5.4rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.007);
+    border: none;
+    color: rgb(248, 248, 248);
+    transition: 0.2s ease-in;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+  }
+
+  #Buttons {
+    display: grid;
+    grid-template-columns: repeat(4,6rem);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    top: 2.6rem;
+    left: 1.1rem;
+    position: relative;
+    width: 25rem;
+    height: 32rem;
+    background-color: rgb(63, 58, 58);
+    padding-bottom: 1.3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  button {
+    height: 6rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 8rem;
+    transform: scale(0.8);
+    transition: 0.2s ease-in-out;
+    border: 0.1rem solid;
+  } 
+  
+  button:disabled {
+      background-color: #ccc; 
+      color: #000; 
+    
+  }
+  
+  button:hover {
+    transform: scale(0.85);
+    background-color:rgb(136, 133, 133);
+    color: rgb(37, 37, 37);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  button:active {
+    transform: scale(0.83);
+  }
+  
+  #AC {
+    top: 0.5rem;
+    color: rgb(255, 153, 0);
+    width: 7.3rem ;
+    position: relative;
+    font-weight: bold;
+    transform: scale(0.7);
+    background-color: rgb(212, 151, 59);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(0, 0, 0);
+  }
+  
+  #AC:hover {
+    color: whitesmoke;
+  }
+  
+  #Hello {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 0.5rem;
+    height: 3rem;
+    width: 6rem;
+    position: relative;
+    background-color: rgb(243, 141, 0);
+    left: 0.5rem;
+  }
+  #Bye {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 3rem;
+    right: 6rem;
+    width: 6rem;
+    height: 3rem;
+    position: relative;
+    background-color: rgb(228, 137, 9);
+    left: -5.5rem;
+  }
+  
+  #Del {
+    top: 3rem;
+    right: 0.3rem;
+    position: relative;
+    height: 3rem;
+    width: 7rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  
+  #Del:hover{
+    color: whitesmoke;
+    transform: scale(0.83);
+  }
+  
+  #Del:active {
+    transform: scale(0.8);
+  }
+  
+  #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0, #Dec {
+    position: relative;
+    left: 0.5rem;
+    background-color: rgb(207, 208, 201);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(18, 18, 18);
+  }
+  
+  
+  #Equal{
+    position: relative;
+    right: 0.2rem;
+    width: 7.5rem;
+    font-weight: 800;
+    background-color: rgb(196, 124, 23);
+  }
+  
+  #Add, #Multiply, #Div, #Sub  {
+    position: relative;
+    left: 0.5rem;
+    font-weight: 800;
+    background-color: rgb(201, 204, 186);
+  
+  
+  }
+  
+  img{
+    position: fixed;
+    background-size: cover;
+    transform: scale(1.1);
+    
+  }
+  
+  .textanimation{
+    animation: revealText 1s linear;
+    overflow: hidden;
+  }
+  
+  .background{
+    opacity: 0;
+  }
+  
+  @keyframes revealText {
+    from {
+      transform: translateX(10.3rem);
+      width: 1rem;
+    }
+    to {
+      transform: translateX(10.3rem);
+      width: 12.8rem;
+    }
+  }
+}
+
+@media (max-width:376px) {
+  #cute{
+    transform: scale(0.15);
+    width: 27rem;
+    position: fixed;
+    top: -2.5rem;
+    left: 9rem;
+    opacity: 100%;
+  }
+ 
+    #cute1{
+      position: fixed;
+      top: -1.5rem;
+      left: 2rem;
+    }  
+
+  #Calculator{
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    position: relative;
+    left: -2.2rem;
+    top: 1rem;
+    background-color: rgb(212, 210, 208);
+    height: 40rem;
+    width: 27rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-bottom: 3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+    box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
+    transform: scale(0.8);
+  }
+
+  #CalcDisplay {
+    border-radius: 1.5rem;
+    width: 25rem;
+    left: 1.1rem;
+    top: 2rem;
+    height: 6.5rem;
+    position: relative;
+    background-color: rgb(63, 58, 58);
+    
+  }
+
+  #History {
+    padding-right: 0.4rem;
+    padding-top: 0.2rem;
+    border-radius: 1rem;
+    height: 1.3rem;
+    left: 7.8rem;
+    text-align: right;
+    top: 0.8rem;
+    position: relative;
+    background-color: rgb(151, 193, 169);
+    width: 15.8rem;
+    color: rgb(7, 7, 8);
+    font-family:monospace;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+  }
+
+  #Display{ 
+    text-align: right;
+    width: 24rem;
+    height: 2.6rem;
+    font-size: 2.6rem;
+    left: 0rem;
+    top: 5.4rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.007);
+    border: none;
+    color: rgb(248, 248, 248);
+    transition: 0.2s ease-in;
+    text-shadow: 0.1rem 0.1rem 0.1rem black;
+  }
+
+  #Buttons {
+    display: grid;
+    grid-template-columns: repeat(4,6rem);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    top: 2.6rem;
+    left: 1.1rem;
+    position: relative;
+    width: 25rem;
+    height: 32rem;
+    background-color: rgb(63, 58, 58);
+    padding-bottom: 1.3rem;
+    border-bottom-left-radius: 5rem;
+    border-bottom-right-radius: 5rem;
+  }
+  button {
+    height: 6rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 8rem;
+    transform: scale(0.8);
+    transition: 0.2s ease-in-out;
+    border: 0.1rem solid;
+  } 
+  
+  button:disabled {
+      background-color: #ccc; 
+      color: #000; 
+    
+  }
+  
+  button:hover {
+    transform: scale(0.85);
+    background-color:rgb(136, 133, 133);
+    color: rgb(37, 37, 37);
+    font-size: 2rem;
+    font-weight: 800;
+  }
+  
+  button:active {
+    transform: scale(0.83);
+  }
+  
+  #AC {
+    top: 0.5rem;
+    color: rgb(255, 153, 0);
+    width: 7.3rem ;
+    position: relative;
+    font-weight: bold;
+    transform: scale(0.7);
+    background-color: rgb(212, 151, 59);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(0, 0, 0);
+  }
+  
+  #AC:hover {
+    color: whitesmoke;
+  }
+  
+  #Hello {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 0.5rem;
+    height: 3rem;
+    width: 6rem;
+    position: relative;
+    background-color: rgb(243, 141, 0);
+    left: 0.5rem;
+  }
+  #Bye {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 3rem;
+    right: 6rem;
+    width: 6rem;
+    height: 3rem;
+    position: relative;
+    background-color: rgb(228, 137, 9);
+    left: -5.5rem;
+  }
+  
+  #Del {
+    top: 3rem;
+    right: 0.3rem;
+    position: relative;
+    height: 3rem;
+    width: 7rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  
+  #Del:hover{
+    color: whitesmoke;
+    transform: scale(0.83);
+  }
+  
+  #Del:active {
+    transform: scale(0.8);
+  }
+  
+  #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0, #Dec {
+    position: relative;
+    left: 0.5rem;
+    background-color: rgb(207, 208, 201);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(18, 18, 18);
+  }
+  
+  
+  #Equal{
+    position: relative;
+    right: 0.2rem;
+    width: 7.5rem;
+    font-weight: 800;
+    background-color: rgb(196, 124, 23);
+  }
+  
+  #Add, #Multiply, #Div, #Sub  {
+    position: relative;
+    left: 0.5rem;
+    font-weight: 800;
+    background-color: rgb(201, 204, 186);
+  
+  
+  }
+  
+  img{
+    position: fixed;
+    background-size: cover;
+    transform: scale(1.1);
+    
+  }
+  
+  .textanimation{
+    animation: revealText 1s linear;
+    overflow: hidden;
+  }
+  
+  .background{
+    opacity: 0;
+  }
+  
+  @keyframes revealText {
+    from {
+      transform: translateX(10.3rem);
+      width: 1rem;
+    }
+    to {
+      transform: translateX(10.3rem);
+      width: 12.8rem;
+    }
   }
 }
