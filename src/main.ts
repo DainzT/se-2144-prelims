@@ -45,10 +45,14 @@ Buttons.forEach(num => { //goes through the array
                 }
             } else {
                 if (num === "Dec") {
-                    if (Checkdecimal) {
+                    const check = ["1", "2", "3", "4", "5", "6", "7","8","9","10"].includes(Display!.value.charAt(Display!.value.length - 1))
+                    if (check && Checkdecimal) {
                         Checkdecimal = false
                         Display!.value += "."; //prevents from having two decimals
-                    } 
+                    } else if (Checkdecimal) {
+                        Checkdecimal = false
+                        Display!.value += "0."
+                    }
                 } else Display!.value += num[1];
             }
         }
@@ -62,6 +66,7 @@ Del?.addEventListener("click", () => {
     if (input) {
         Display!.value = "0"
     }
+    
     if (Display!.value.length > 1) Display!.value = `${Display?.value.slice(0, -1)}`;
     else Display!.value = "0";
 });
@@ -72,8 +77,12 @@ Operations.forEach(signs => {
     const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) //goes over them and quqeries over them in the document
     Operaters?.addEventListener("click", () => { //check displays the operation when clicked, on screen.
             const lastchar = Display!.value.charAt(Display!.value.length -1 )
-            const check = ["+", "−", "÷", "×"].includes(lastchar)
+            const check = ["+", "−", "÷", "×", "."].includes(lastchar)
             if (!check && Display!.value.length < 16) {
+                if (input) {
+                    Display!.value = "0"
+                    input = false
+                }
                 if (signs === "Add") {
                     Display!.value += "+";
                 }
