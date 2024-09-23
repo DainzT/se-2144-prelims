@@ -79,9 +79,8 @@ Operations.forEach(signs => {
             const lastchar = Display!.value.charAt(Display!.value.length -1 )
             const check = ["+", "−", "÷", "×", "."].includes(lastchar)
             if (!check && Display!.value.length < 16) {
-                if (input) {
+                if (greetings.includes(Display!.value)) {
                     Display!.value = "0"
-                    input = false
                 }
                 if (signs === "Add") {
                     Display!.value += "+";
@@ -168,10 +167,10 @@ function Enabled() {
     if (Del) Del.disabled = false;
 }
 
+const greetings = ["Hola", "Kamusta", "Konichiwa", "Ciao", "Salaam", "Namaste", "Hallo", "Bonjour"]
 const Hello = document.querySelector<HTMLButtonElement>("#Hello")
 Hello?.addEventListener("click", () => {
     input=true;
-    const greetings = ["Hola", "Kamusta", "Konichiwa", "Ciao", "Salaam", "Namaste", "Hallo", "Bonjour"]
     Display!.value = greetings[Math.floor(Math.random() * 8)];
 });
 
