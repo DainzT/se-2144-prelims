@@ -45,18 +45,19 @@ Buttons.forEach(num => { //goes through the array
                 }
             } else {
                 if (num === "Dec") {
-                    const check = ["1", "2", "3", "4", "5", "6", "7","8","9","10"].includes(Display!.value.charAt(Display!.value.length - 1))
+                    const check = ["1", "2", "3", "4", "5", "6", "7","8","9","10","0"].includes(Display!.value.charAt(Display!.value.length - 1))
                     if (check && Checkdecimal) {
                         Checkdecimal = false
                         Display!.value += "."; //prevents from having two decimals
                     } else if (Checkdecimal) {
                         Checkdecimal = false
-                        Display!.value += "0."
+                        Display!.value += "."
                     }
                 } else Display!.value += num[1];
             }
         }
         history = Display!.value;
+        console.log(Checkdecimal)
     })
 });
 
@@ -66,9 +67,11 @@ Del?.addEventListener("click", () => {
     if (input) {
         Display!.value = "0"
     }
-    
+    if (["."].includes(Display!.value.charAt(Display!.value.length - 1)) && Checkdecimal === false) Checkdecimal = true 
+  
     if (Display!.value.length > 1) Display!.value = `${Display?.value.slice(0, -1)}`;
     else Display!.value = "0";
+    console.log(Display!.value.charAt(Display!.value.length - 1))
 });
 
 //id of operations are stored in an array
@@ -94,6 +97,7 @@ Operations.forEach(signs => {
                 if (signs === "Multiply") Display!.value += "×";
             input = false
             Checkdecimal = true
+            console.log(Checkdecimal)
             }
         })
     })
