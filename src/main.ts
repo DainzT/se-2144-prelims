@@ -67,6 +67,9 @@ Del?.addEventListener("click", () => {
     if (input) {
         Display!.value = "0"
     }
+
+    if (["+", "−", "÷", "×"].includes(Display!.value.charAt(Display!.value.length - 1)) && Checkdecimal == true) Checkdecimal = false
+
     if (["."].includes(Display!.value.charAt(Display!.value.length - 1)) && Checkdecimal === false) Checkdecimal = true 
   
     if (Display!.value.length > 1) Display!.value = `${Display?.value.slice(0, -1)}`;
