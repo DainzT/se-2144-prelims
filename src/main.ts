@@ -41,7 +41,7 @@ Buttons.forEach(num => { //goes through the array
                     }
                 } else {
                     Display!.value = num[1];
-                console.log("hi")
+                    console.log("hi")
                 }
             } else {
                 if (num === "Dec") {
@@ -80,7 +80,7 @@ Operations.forEach(signs => {
     const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) //goes over them and quqeries over them in the document
     Operaters?.addEventListener("click", () => { //check displays the operation when clicked, on screen.
             const lastchar = Display!.value.charAt(Display!.value.length -1 )
-            const check = ["+", "−", "÷", "×", "."].includes(lastchar)
+            const check = ["+", "−", "÷", "×"].includes(lastchar)
             if (!check && Display!.value.length < 16) {
                 if (greetings.includes(Display!.value)) {
                     Display!.value = "0"
