@@ -205,11 +205,11 @@
   
   @keyframes revealText {
     from {
-      transform: translateX(10.3rem);
+      transform: translateX(10.27rem);
       width: 1rem;
     }
     to {
-      transform: translateX(10.3rem);
+      transform: translateX(10.27rem);
       width: 12.8rem;
     }
   }
