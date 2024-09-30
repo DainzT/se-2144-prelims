@@ -37,6 +37,10 @@ Buttons.forEach(num => { //goes through the array
     button?.addEventListener("click", () => {  //check if specific button is clicked it displays its value
         if (input) {
             Display!.value = "0";
+            Checkdecimal2 = 0
+            Stack = 0
+            Stack2 = 0
+            Checkdecimal = true
             input=false;
         }
         if ( Display && Display!.value.length < 16) {
@@ -68,7 +72,7 @@ Buttons.forEach(num => { //goes through the array
                     }
                 } else {Display!.value += num[1];}
             }
-        }
+        } 
         history = Display!.value;
         console.log(Checkdecimal)
     })
@@ -117,6 +121,19 @@ Operations.forEach(signs => {
             input = false
             Checkdecimal = true
             console.log(Checkdecimal)
+            } else if (!check && Display!.value.length >= 16) {
+                Display!.value = `${Display?.value.slice(0, -8)}`;
+                if (signs === "Add") {
+                    Display!.value += "+";
+                }
+                if (signs === "Sub") {
+                    Display!.value += "−";
+                }
+                if (signs === "Div") {
+                    Display!.value += "÷";
+                }
+                if (signs === "Multiply") Display!.value += "×";
+                input = false
             }
         })
     })
