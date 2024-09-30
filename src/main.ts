@@ -7,12 +7,19 @@ let input = false;
 let history: any = "";
 let checkIfbye: boolean = false;
 let Checkdecimal: boolean = true;
+let Checkdecimal2: number = 0; //acts as a disable for the other if statement
+let Stack: number = 0; //a receptor for the if staatement
+let Stack2: number = 0; //a second receptor for the if statement
 
 //Resets the Calculator
 const AC = document.querySelector<HTMLButtonElement>("#AC")
 AC?.addEventListener("click", () => {
     if (Display) Display.value = "0";
     if (History) History.value = "";
+    Checkdecimal2 = 0
+    Stack = 0
+    Stack2 = 0
+    Checkdecimal = true
 
     if (checkIfbye) {
         Enabled();
@@ -37,6 +44,7 @@ Buttons.forEach(num => { //goes through the array
                 if (num === "Dec") {
                     if (!Display.value.includes(".")) {
                         Checkdecimal = false
+                        Checkdecimal2 = 1
                         Display!.value += "."; //adds the decimal instead of replacing the 0
                     }
                 } else {
@@ -49,9 +57,14 @@ Buttons.forEach(num => { //goes through the array
                     if (check && Checkdecimal) {
                         Checkdecimal = false
                         Display!.value += "."; //prevents from having two decimals
+                        Checkdecimal2 = 1
                     } else if (Checkdecimal) {
                         Checkdecimal = false
                         Display!.value += "."
+                    } 
+                    if (Stack == 1 && !Checkdecimal && Stack2 == 0 && Checkdecimal2 == 0){
+                        Display!.value += "."
+                        Stack2 = 1
                     }
                 } else {Display!.value += num[1];}
             }
@@ -68,9 +81,12 @@ Del?.addEventListener("click", () => {
         Display!.value = "0"
     }
 
-    if (["+", "−", "÷", "×"].includes(Display!.value.charAt(Display!.value.length - 1)) && Checkdecimal == true) Checkdecimal = false
+    if (["+", "−", "÷", "×"].includes(Display!.value.charAt(Display!.value.length - 1)) && Checkdecimal) {
+        Checkdecimal = false; 
+        Stack = 1;
+    }
 
-    if (["."].includes(Display!.value.charAt(Display!.value.length - 1)) && Checkdecimal === false) Checkdecimal = true 
+    if (["."].includes(Display!.value.charAt(Display!.value.length - 1)) && !Checkdecimal) Checkdecimal = true;
   
     if (Display!.value.length > 1) Display!.value = `${Display?.value.slice(0, -1)}`;
     else Display!.value = "0";
