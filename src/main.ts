@@ -65,7 +65,7 @@ Buttons.forEach(num => { // goes through the array
                         Display!.value += "."
                         tracker += "."
                     } 
-                    if (!(Display!.value.split(/[-*/+]/).slice(-1).join("").split("").includes("."))){
+                    if (!(Display!.value.split(/[−÷×+]/).slice(-1).join("").split("").includes("."))){
                         Display!.value += "."
                         tracker += "."
                     } 
@@ -76,18 +76,17 @@ Buttons.forEach(num => { // goes through the array
             }
         }
 
-        if (Display!.value.split(/[-*/+]/).slice(-1)[0][0] == "0" || (Display!.value.split(/[-*/+]/).slice(-1)[0][0] == "−" && Display!.value.split(/[-*/+]/).slice(-1)[0][1] == "0")) {
+        if (Display!.value.split(/[−÷×+]/).slice(-1)[0][0] == "0" || (Display!.value.split(/[−÷×+]/).slice(-1).join("").includes("−0")) ) {
             checkZero = true
         } else {
             checkZero = false;
         }   
         
-        if (tracker[1] == "." || (Display!.value.split(/[-*/+]/).slice(-1)[0][0] == "0" && Display!.value.split(/[-*/+]/).slice(-1)[0][1] == ".")) {
+        if (tracker[1] == "." || (Display!.value.split(/[−÷×+]/).slice(-1)[0][0] == "0" && Display!.value.split(/[−÷×+]/).slice(-1)[0][1] == ".")) {
             checkZero = false;
         }
         
-        console.log(tracker)
-        console.log(Display!.value.split(/[-*/+]/).slice(-1).join("").split("").includes("."))
+        console.log(Display!.value.split(/[−÷×+]/).slice(-1).join(""))
         history = Display!.value;
     })
 });
@@ -115,7 +114,7 @@ Del?.addEventListener("click", () => {
 
     tracker = tracker.slice(0, -1);
 
-    if (Display!.value.split(/[-*/+]/).slice(-1)[0][0] == "0") {
+    if (Display!.value.split(/[−÷×+]/).slice(-1)[0][0] == "0") {
         checkZero = true
     } else {
         checkZero = false;
