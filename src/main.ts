@@ -1,28 +1,28 @@
+// Note to self: GET RID OF REDUNDANT CODES
+
 const Display = document.querySelector<HTMLInputElement>("#Display")
 const History = document.querySelector<HTMLInputElement>("#History")
 
-//toggle for when equal is entered, resets it to zero when a new digit is clicked.
+// toggle for when equal is entered, resets it to zero when a new digit is clicked.
 let input = false;
-//toggle stores the display value
+// toggle stores the display value
 let history: any = "";
-let checkIfbye: boolean = false;
-let Checkdecimal: boolean = true;
-let Checkdecimal2: number = 0; //acts as a disable for the other if statement
-let Stack: number = 0; //a receptor for the if staatement
-let Stack2: number = 0; //a second receptor for the if statement
+let checkIfBye: boolean = false;
+let checkDecimal: boolean = true;
+let checkZero: boolean = false;
+let tracker: any = ""; // tracks when the first index of the rows of digits is a zero
 
-//Resets the Calculator
+// Resets the Calculator
 const AC = document.querySelector<HTMLButtonElement>("#AC")
 AC?.addEventListener("click", () => {
     if (Display) Display.value = "0";
     if (History) History.value = "";
-    Checkdecimal2 = 0
-    Stack = 0
-    Stack2 = 0
-    Checkdecimal = true
+    checkDecimal = true;
     input = false;
-
-    if (checkIfbye) {
+    history = "";
+    tracker = "";
+    checkZero = false;
+    if (checkIfBye) {
         Enabled();
         Display?.classList.remove("background");
         History?.classList.remove("background");
@@ -31,80 +31,111 @@ AC?.addEventListener("click", () => {
     } 
 });;
 
-//Stores the id of the numbers in an array
+// Stores the id of the numbers in an array
 const Buttons = ["b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "Dec"];
-Buttons.forEach(num => { //goes through the array
-    const button = document.querySelector<HTMLButtonElement>(`#${num}`) //queries over the document id to search for the button  
-    button?.addEventListener("click", () => {  //check if specific button is clicked it displays its value
+Buttons.forEach(num => { // goes through the array
+    const button = document.querySelector<HTMLButtonElement>(`#${num}`) // queries over the document id to search for the button  
+    button?.addEventListener("click", () => {  // check if specific button is clicked it displays its value
         if (input) {
             Display!.value = "0";
-            Checkdecimal2 = 0
-            Stack = 0
-            Stack2 = 0
-            Checkdecimal = true
+            checkDecimal = true
             input=false;
         }
         if ( Display && Display!.value.length < 16) {
             if (Display!.value === "0") {
                 if (num === "Dec") {
                     if (!Display.value.includes(".")) {
-                        Checkdecimal = false
-                        Checkdecimal2 = 1
-                        Display!.value += "."; //adds the decimal instead of replacing the 0
+                        checkDecimal = false
+                        Display!.value += "."; // adds the decimal instead of replacing the 0
+                        tracker = "0."
                     }
                 } else {
                     Display!.value = num[1];
-                    console.log("hi")
+                    tracker = num[1]
                 }
             } else {
                 if (num === "Dec") {
                     const check = ["1", "2", "3", "4", "5", "6", "7","8","9","10","0"].includes(Display!.value.charAt(Display!.value.length - 1))
-                    if (check && Checkdecimal) {
-                        Checkdecimal = false
-                        Display!.value += "."; //prevents from having two decimals
-                        Checkdecimal2 = 1
-                    } else if (Checkdecimal) {
-                        Checkdecimal = false
+                    if (check && checkDecimal) {
+                        checkDecimal = false
+                        Display!.value += "."; // prevents from having two decimals
+                        tracker += "."
+                    } else if (checkDecimal) {
+                        checkDecimal = false
                         Display!.value += "."
+                        tracker += "."
                     } 
-                    if (Stack == 1 && !Checkdecimal && Stack2 == 0 && Checkdecimal2 == 0){
+                    if (!(Display!.value.split(/[-*/+]/).slice(-1).join("").split("").includes("."))){
                         Display!.value += "."
-                        Stack2 = 1
-                    }
-                } else {Display!.value += num[1];}
+                        tracker += "."
+                    } 
+                } else if (!checkZero){ 
+                    Display!.value += num[1];
+                    tracker += num[1]
+                }
             }
-        } 
+        }
+
+        if (Display!.value.split(/[-*/+]/).slice(-1)[0][0] == "0" || (Display!.value.split(/[-*/+]/).slice(-1)[0][0] == "−" && Display!.value.split(/[-*/+]/).slice(-1)[0][1] == "0")) {
+            checkZero = true
+        } else {
+            checkZero = false;
+        }   
+        
+        if (tracker[1] == "." || (Display!.value.split(/[-*/+]/).slice(-1)[0][0] == "0" && Display!.value.split(/[-*/+]/).slice(-1)[0][1] == ".")) {
+            checkZero = false;
+        }
+        
+        console.log(tracker)
+        console.log(Display!.value.split(/[-*/+]/).slice(-1).join("").split("").includes("."))
         history = Display!.value;
-        console.log(Checkdecimal)
     })
 });
 
-//takes the last index of the text and deletes it
+
+
+// takes the last index of the text and deletes it
 const Del = document.querySelector<HTMLButtonElement>("#Del")
 Del?.addEventListener("click", () => {
     if (input) {
-        Display!.value = "0"
+        Display!.value = "0";
     }
 
-    if (["+", "−", "÷", "×"].includes(Display!.value.charAt(Display!.value.length - 1)) && Checkdecimal) {
-        Checkdecimal = false; 
-        Stack = 1;
+    if (["+", "−", "÷", "×"].includes(Display!.value.charAt(Display!.value.length - 1)) && checkDecimal) {
+        checkDecimal = false; 
     }
 
-    if (["."].includes(Display!.value.charAt(Display!.value.length - 1)) && !Checkdecimal) Checkdecimal = true;
+    if (["."].includes(Display!.value.charAt(Display!.value.length - 1)) && !checkDecimal) checkDecimal = true;
   
-    if (Display!.value.length > 1) Display!.value = `${Display?.value.slice(0, -1)}`;
-    else Display!.value = "0";
-    console.log(Display!.value.charAt(Display!.value.length - 1))
+    if (Display!.value.length > 1) {
+        Display!.value = `${Display?.value.slice(0, -1)}`;
+    } else {
+        Display!.value = "0";
+    }
+
+    tracker = tracker.slice(0, -1);
+
+    if (Display!.value.split(/[-*/+]/).slice(-1)[0][0] == "0") {
+        checkZero = true
+    } else {
+        checkZero = false;
+    }   
+
+    if (tracker[1] == ".") {
+        checkZero = false;
+    }
+
+    console.log(tracker)
 });
 
-//id of operations are stored in an array
+// id of operations are stored in an array
 const Operations = ["Add", "Sub", "Div", "Multiply"]
 Operations.forEach(signs => {
-    const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) //goes over them and quqeries over them in the document
-    Operaters?.addEventListener("click", () => { //check displays the operation when clicked, on screen.
+    const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) // goes over them and quqeries over them in the document
+    Operaters?.addEventListener("click", () => { // check displays the operation when clicked, on screen.
             const lastchar = Display!.value.charAt(Display!.value.length -1 )
             const check = ["+", "−", "÷", "×", "."].includes(lastchar)
+            const check1 = ["+", "÷", "×"].includes(lastchar)
             if (!check && Display!.value.length < 16) {
                 if (greetings.includes(Display!.value)) {
                     Display!.value = "0"
@@ -112,7 +143,9 @@ Operations.forEach(signs => {
                 if (signs === "Add") {
                     Display!.value += "+";
                 }
-                if (signs === "Sub") {
+                if (signs === "Sub" && Display!.value === "0") {
+                    Display!.value = "−";
+                } else if (signs === "Sub") {
                     Display!.value += "−";
                 }
                 if (signs === "Div") {
@@ -120,8 +153,9 @@ Operations.forEach(signs => {
                 }
                 if (signs === "Multiply") Display!.value += "×";
             input = false
-            Checkdecimal = true
-            console.log(Checkdecimal)
+            checkDecimal = true
+            tracker = ""
+            console.log(check)
             } else if (!check && Display!.value.length >= 16) {
                 Display!.value = `${Display?.value.slice(0, -8)}`;
                 if (signs === "Add") {
@@ -135,17 +169,21 @@ Operations.forEach(signs => {
                 }
                 if (signs === "Multiply") Display!.value += "×";
                 input = false
+            } else if (check1) {
+                if (signs === "Sub") {
+                    Display!.value += "−";
+                }
             }
         })
     })
 
-//performs the solving
+// performs the solving
 const Enter = document.querySelector<HTMLButtonElement>("#Equal")
 Enter?.addEventListener("click", () => { 
     if (Display!.value === "0") {
         Display!.value = "0"
     } else {
-        Checkdecimal = true
+        checkDecimal = true
         console.log(history)
         const solved = history.replaceAll("−", "-").replaceAll("÷", "/").replaceAll("×", "*")
         console.log(solved)
@@ -155,7 +193,7 @@ Enter?.addEventListener("click", () => {
     }
 });
 
-//says the goodbye message on screen
+// says the goodbye message on screen
 const Bye = document.querySelector<HTMLButtonElement>("#Bye")
  Bye?.addEventListener("click", ()=> {
     Display!.value = "Sasageyoo!";
@@ -164,7 +202,7 @@ const Bye = document.querySelector<HTMLButtonElement>("#Bye")
     Disabled();
  });
 
-
+// animation when clicked on the Bye button
 function Off() {
     History?.classList.add("background");
     Display?.classList.add("background"); 
@@ -172,11 +210,11 @@ function Off() {
 };
 
 
-//Disables all Button
+// Disables all Button
 function Disabled() {
-    checkIfbye = true
+    checkIfBye = true;
     Operations.forEach(signs => {
-        const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) //goes over them and quqeries over them in the document
+        const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) // iterates each and queries them over in the document
         if (Operaters) Operaters.disabled = true;
     });
     Buttons.forEach(num => {
@@ -194,7 +232,7 @@ function Disabled() {
 function Enabled() {
     
     Operations.forEach(signs => {
-        const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) //goes over them and quqeries over them in the document
+        const Operaters = document.querySelector<HTMLButtonElement>(`#${signs}`) // iterates each and queries them over in the document
         if (Operaters) Operaters.disabled = false;
     })
     Buttons.forEach(num => {
@@ -215,7 +253,7 @@ Hello?.addEventListener("click", () => {
     Display!.value = greetings[Math.floor(Math.random() * 8)];
 });
 
-//Integrate keys in calcualtor 
+// Integrate keys in calcualtor 
 document.addEventListener("keydown", (event) => {
     if (event.key >= '0' && event.key <= '9') {
         const button = document.querySelector<HTMLButtonElement>(`#b${event.key}`)
