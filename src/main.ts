@@ -20,6 +20,7 @@ AC?.addEventListener("click", () => {
     Stack = 0
     Stack2 = 0
     Checkdecimal = true
+    input = false;
 
     if (checkIfbye) {
         Enabled();
@@ -254,6 +255,10 @@ document.addEventListener("keydown", (event) => {
     }
     if (event.key == 'b') {
         const button =  document.querySelector<HTMLButtonElement>(`#Bye`)
+        button?.click();
+    }
+    if (event.key == '.') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Dec`)
         button?.click();
     }
 })
