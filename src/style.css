@@ -27,7 +27,7 @@
     height: 6.5rem;
     position: relative;
     background-color: rgb(63, 58, 58);
-    
+    border: 0.2rem solid #000;
   }
 
   #History {
@@ -217,14 +217,14 @@
     transform: scale(0.15);
     width: 27rem;
     position: fixed;
-    top: -2.5rem;
+    top: -2.1rem;
     left: 9rem;
     opacity: 100%;
   }
  
     #cute1{
       position: fixed;
-      top: -1.5rem;
+      top: -1.6rem;
       left: 2rem;
     }  
 }
