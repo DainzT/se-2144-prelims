@@ -214,3 +214,47 @@ Hello?.addEventListener("click", () => {
     Display!.value = greetings[Math.floor(Math.random() * 8)];
 });
 
+//Integrate keys in calcualtor 
+document.addEventListener("keydown", (event) => {
+    if (event.key >= '0' && event.key <= '9') {
+        const button = document.querySelector<HTMLButtonElement>(`#b${event.key}`)
+        button?.click();
+    }
+    if (event.key == 'Backspace') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Del`)
+        button?.click();
+    }
+    if (event.key == 'Enter') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Equal`)
+        button?.click();
+    }
+    if (event.key == '+') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Add`)
+        button?.click();
+    }
+    if (event.key == '-') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Sub`)
+        button?.click();
+    }
+    if (event.key == '/') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Div`)
+        button?.click();
+    }
+    if (event.key == '*') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Multiply`)
+        button?.click();
+    }
+    if (event.key == 'a') {
+        const button =  document.querySelector<HTMLButtonElement>(`#AC`)
+        button?.click();
+    }
+    if (event.key == 'h') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Hello`)
+        button?.click();
+    }
+    if (event.key == 'b') {
+        const button =  document.querySelector<HTMLButtonElement>(`#Bye`)
+        button?.click();
+    }
+})
+
