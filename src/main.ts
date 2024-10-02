@@ -5,11 +5,12 @@ const History = document.querySelector<HTMLInputElement>("#History")
 
 // toggle for when equal is entered, resets it to zero when a new digit is clicked.
 let input = false;
-// toggle stores the display value
-let history: any = "";
-let checkIfBye: boolean = false;
-let checkDecimal: boolean = true;
-let checkZero: boolean = false;
+
+
+let history: any = ""; // stores the display value for the history feauture
+let checkIfBye: boolean = false; // a toggle for when checking up on the function if it 
+let checkDecimal: boolean = true; // a toggle when checking if there is a decimal present or not, absent.
+let checkZero: boolean = false; // check whether the alue starts with a zero
 let tracker: any = ""; // tracks when the first index of the rows of digits is a zero
 
 // Resets the Calculator
@@ -67,8 +68,8 @@ Buttons.forEach(num => { // goes through the array
                         Display!.value += "."
                         tracker += "."
                     } 
-                    if (!(Display!.value.split(/[−÷×+]/).slice(-1).join("").split("").includes("."))){
-                        Display!.value += "."
+                    if (!(Display!.value.split(/[−÷×+]/).slice(-1).join("").split("").includes("."))){ // Splits the operation into a list based on the symbol of operation, 
+                        Display!.value += "."                                                          // then checks the last index of the operation to again split the strings of the index into a list
                         tracker += "."
                     } 
                 } else if (!checkZero){ 
@@ -78,19 +79,19 @@ Buttons.forEach(num => { // goes through the array
             }
         }
 
+        // checks the index if the number starts with a 0 then if true it disables the number buttons unless added a decimal
         if (Display!.value.split(/[−÷×+]/).slice(-1)[0][0] == "0" || (Display!.value.split(/[−÷×+]/).slice(-1).join("").includes("−0")) ) {
             checkZero = true
         } else {
             checkZero = false;
         }   
-        
         if (tracker[1] == "." || (Display!.value.split(/[−÷×+]/).slice(-1)[0][0] == "0" && Display!.value.split(/[−÷×+]/).slice(-1)[0][1] == ".")) {
             checkZero = false;
         }
         
         let checkError = Display!.value
 
-
+        // If the value doesnt change when clicking on the buttib it marks ana error in the syntax by highlighting red
         if (preValue === checkError) {
             Display!.style.color = "rgb(250,128,114)"
         }  else {
@@ -208,8 +209,8 @@ Enter?.addEventListener("click", () => {
         const solved = history.replaceAll("−", "-").replaceAll("÷", "/").replaceAll("×", "*")
         Display!.value = `${eval(solved)}`.slice(0,16);
         History!.value = `${history} = ${Display!.value}`;
-        Fix() 
-        ILY()
+        Error() 
+        Special_Code()
         input = true;
     }
 });
@@ -229,7 +230,6 @@ function Off() {
     Display?.classList.add("background"); 
     if (AC) {AC.disabled = false};
 };
-
 
 // Disables all Button
 function Disabled() {
@@ -267,6 +267,8 @@ function Enabled() {
     if (Del) Del.disabled = false;
 }
 
+
+// makes a greeting in all sorts of language displayed on the screen.
 const greetings = ["Hola", "Kamusta", "Konichiwa", "Ciao", "Salaam", "Namaste", "Hallo", "Bonjour"]
 const Hello = document.querySelector<HTMLButtonElement>("#Hello")
 Hello?.addEventListener("click", () => {
@@ -322,15 +324,19 @@ document.addEventListener("keydown", (event) => {
     }
 })
 
-function Fix() {
+// checks if infinity it will return an error instead   
+function Error() {
     if (Display!.value === "Infinity") {
         Display!.value = "Error"
         History!.value = `${history} = ${Display!.value}`;
     }
 }
 
-function ILY() {
-    if (Display!.value === "143"){
+// place a special message for these specific inputs
+function Special_Code() {
+    if (Display!.value === "143") {
         History!.value =`${history} = I LOVE YOU`
-    }
+    } else if (Display!.value === "153") {
+        History!.value =`${history} = I Miss You`
+    } 
 }
