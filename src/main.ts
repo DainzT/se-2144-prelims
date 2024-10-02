@@ -158,7 +158,7 @@ Operations.forEach(signs => {
             const check = ["+", "−", "÷", "×", "."].includes(lastchar)
             const check1 = ["+", "÷", "×"].includes(lastchar)
             if (!check && Display!.value.length < 16) {
-                if (greetings.includes(Display!.value)) {
+                if (greetings.includes(Display!.value) || Display!.value == "Error") {
                     Display!.value = "0"
                 }
                 if (signs === "Add") {
@@ -324,7 +324,7 @@ document.addEventListener("keydown", (event) => {
 
 function Fix() {
     if (Display!.value === "Infinity") {
-        Display!.value = "0"
+        Display!.value = "Error"
         History!.value = `${history} = ${Display!.value}`;
     }
 }
