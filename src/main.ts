@@ -158,7 +158,7 @@ Operations.forEach(signs => {
             const check = ["+", "−", "÷", "×", "."].includes(lastchar)
             const check1 = ["+", "÷", "×"].includes(lastchar)
             if (!check && Display!.value.length < 16) {
-                if (greetings.includes(Display!.value) || Display!.value == "Error") {
+                if (greetings.includes(Display!.value) || Display!.value == "Error" || Display!.value == "NaN") {
                     Display!.value = "0"
                 }
                 if (signs === "Add") {
