@@ -36,6 +36,8 @@ const Buttons = ["b0", "b1", "b2", "b3", "b4", "b5", "b6", "b7", "b8", "b9", "De
 Buttons.forEach(num => { // goes through the array
     const button = document.querySelector<HTMLButtonElement>(`#${num}`) // queries over the document id to search for the button  
     button?.addEventListener("click", () => {  // check if specific button is clicked it displays its value
+        let preValue = Display!.value;
+
         if (input) {
             Display!.value = "0";
             checkDecimal = true
@@ -86,7 +88,17 @@ Buttons.forEach(num => { // goes through the array
             checkZero = false;
         }
         
-        console.log(Display!.value.split(/[−÷×+]/).slice(-1).join(""))
+        let checkError = Display!.value
+
+
+        if (preValue === checkError) {
+            Display!.style.color = "rgb(250,128,114)"
+        }  else {
+            Display!.style.color = "rgb(248, 248, 248)"
+        }
+
+        if (Display!.value[0] === "0") Display!.style.color = "rgb(248, 248, 248)"
+        
         history = Display!.value;
     })
 });
@@ -96,6 +108,8 @@ Buttons.forEach(num => { // goes through the array
 // takes the last index of the text and deletes it
 const Del = document.querySelector<HTMLButtonElement>("#Del")
 Del?.addEventListener("click", () => {
+    let preValue = Display!.value;
+
     if (input) {
         Display!.value = "0";
     }
@@ -122,6 +136,14 @@ Del?.addEventListener("click", () => {
 
     if (tracker[1] == ".") {
         checkZero = false;
+    }
+
+    let checkError = Display!.value
+
+    if (preValue === checkError) {
+        Display!.style.color = "red"
+    }  else {
+        Display!.style.color = "rgb(248, 248, 248)"
     }
 
     console.log(tracker)
@@ -183,11 +205,11 @@ Enter?.addEventListener("click", () => {
         Display!.value = "0"
     } else {
         checkDecimal = true
-        console.log(history)
         const solved = history.replaceAll("−", "-").replaceAll("÷", "/").replaceAll("×", "*")
-        console.log(solved)
         Display!.value = `${eval(solved)}`.slice(0,16);
         History!.value = `${history} = ${Display!.value}`;
+        Fix() 
+        ILY()
         input = true;
     }
 });
@@ -300,3 +322,15 @@ document.addEventListener("keydown", (event) => {
     }
 })
 
+function Fix() {
+    if (Display!.value === "Infinity") {
+        Display!.value = "0"
+        History!.value = `${history} = ${Display!.value}`;
+    }
+}
+
+function ILY() {
+    if (Display!.value === "143"){
+        History!.value =`${history} = I LOVE YOU`
+    }
+}
