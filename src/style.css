@@ -777,11 +777,11 @@
 @media (max-width:431px) {
 
   #Calculator{
-    top: 16rem;
+    top: 1rem;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     position: relative;
-    left: 3rem;
+    left: -0.5rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
     width: 27rem;
@@ -791,7 +791,7 @@
     border-bottom-left-radius: 7rem;
     border-bottom-right-radius: 7rem;
     box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
-    transform: scale(1.2);
+    transform: scale(0.9);
   }
 
   #CalcDisplay {
@@ -1038,11 +1038,11 @@
 @media (max-width:391px) {
 
   #Calculator{
-    top: 20rem;
+    top:4rem;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     position: relative;
-    left: 6rem;
+    left: -1.7rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
     width: 27rem;
@@ -1052,7 +1052,7 @@
     border-bottom-left-radius: 7rem;
     border-bottom-right-radius: 7rem;
     box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
-    transform: scale(1.4);
+    transform: scale(0.85);
   }
 
   #CalcDisplay {
@@ -1297,11 +1297,11 @@
 @media (max-width:376px) {
 
   #Calculator{
-    top: 5rem;
+    top: 3rem;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     position: relative;
-    left: 0.5rem;
+    left: -2rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
     width: 27rem;
@@ -1311,7 +1311,7 @@
     border-bottom-left-radius: 7rem;
     border-bottom-right-radius: 7rem;
     box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
-    transform: scale(1);
+    transform: scale(0.8);
   }
 
   #CalcDisplay {
@@ -1556,7 +1556,7 @@
 @media (max-width:361px) {
 
   #Calculator{
-    top: -1rem;
+    top: 3rem;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     position: relative;
