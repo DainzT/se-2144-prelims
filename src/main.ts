@@ -72,13 +72,15 @@ Buttons.forEach(num => { // goes through the array
                         Display!.value += "."                                                          // then checks the last index of the operation to again split the strings of the index into a list
                         tracker += "."
                     } 
-                } else if (!checkZero){ 
+                } else if (!checkZero){
                     Display!.value += num[1];
                     tracker += num[1]
+                } else if (checkZero) {
+                    Display!.value = Display!.value.slice(0, Display!.value.lastIndexOf("0")) + num[1]
                 }
             }
         }
-
+        console.log(checkDecimal)
         // checks the index if the number starts with a 0 then if true it disables the number buttons unless added a decimal
         if (Display!.value.split(/[−÷×+]/).slice(-1)[0][0] == "0" || (Display!.value.split(/[−÷×+]/).slice(-1).join("").includes("−0")) ) {
             checkZero = true
@@ -92,14 +94,17 @@ Buttons.forEach(num => { // goes through the array
         let checkError = Display!.value
 
         // If the value doesnt change when clicking on the buttib it marks ana error in the syntax by highlighting red
-        if (preValue === checkError) {
-            Display!.style.color = "rgb(250,128,114)"
+        if (preValue == checkError) {
+            if (Display!.value.length == 1 && Display!.value == "0") {
+               Display!.style.color = "rgb(248, 248, 248";
+            } else {
+                Display!.style.color = "rgb(250,128,114)";
+            }
         }  else {
             Display!.style.color = "rgb(248, 248, 248)"
         }
-
-        if (Display!.value[0] === "0") Display!.style.color = "rgb(248, 248, 248)"
         
+        console.log(preValue == checkError)
         history = Display!.value;
     })
 });
@@ -113,6 +118,10 @@ Del?.addEventListener("click", () => {
 
     if (input) {
         Display!.value = "0";
+    }
+
+    if (["+", "−", "÷", "×"].includes(Display!.value.charAt(Display!.value.length - 1))) {
+        checkZero = false
     }
 
     if (["+", "−", "÷", "×"].includes(Display!.value.charAt(Display!.value.length - 1)) && checkDecimal) {
@@ -135,6 +144,10 @@ Del?.addEventListener("click", () => {
         checkZero = false;
     }   
 
+    if (Display!.value.split(/[−÷×+]/).slice(-1).join("").split("").includes(".")){ // Splits the operation into a list based on the symbol of operation, 
+        checkDecimal = false;                                                        // then checks the last index of the operation to again split the strings of the index into a list
+    } 
+
     if (tracker[1] == ".") {
         checkZero = false;
     }
@@ -142,12 +155,16 @@ Del?.addEventListener("click", () => {
     let checkError = Display!.value
 
     if (preValue === checkError) {
-        Display!.style.color = "red"
+        if (Display!.value.length == 1 && Display!.value == "0") {
+            Display!.style.color =  "rgb(248, 248, 248)"
+        } else {
+             Display!.style.color = "rgb(250,128,114)"
+        }
     }  else {
         Display!.style.color = "rgb(248, 248, 248)"
     }
 
-    console.log(tracker)
+    // console.log(tracker)
 });
 
 // id of operations are stored in an array
@@ -158,6 +175,20 @@ Operations.forEach(signs => {
             const lastchar = Display!.value.charAt(Display!.value.length -1 )
             const check = ["+", "−", "÷", "×", "."].includes(lastchar)
             const check1 = ["+", "÷", "×"].includes(lastchar)
+
+            let preValue = Display!.value;
+            let checkError = Display!.value
+
+            if (preValue === checkError) {
+                if (Display!.value.length == 1 && Display!.value == "0") {
+                    Display!.style.color =  "rgb(248, 248, 248)"
+                } else {
+                    Display!.style.color = "rgb(250,128,114)"
+                }
+            }  else {
+                Display!.style.color = "rgb(248, 248, 248)"
+            }
+
             if (!check && Display!.value.length < 16) {
                 if (greetings.includes(Display!.value) || Display!.value == "Error" || Display!.value == "NaN") {
                     Display!.value = "0"
@@ -174,10 +205,11 @@ Operations.forEach(signs => {
                     Display!.value += "÷";
                 }
                 if (signs === "Multiply") Display!.value += "×";
+            
+            checkZero = false
             input = false
             checkDecimal = true
             tracker = ""
-            console.log(check)
             } else if (!check && Display!.value.length >= 16) {
                 Display!.value = `${Display?.value.slice(0, -8)}`;
                 if (signs === "Add") {
@@ -195,7 +227,7 @@ Operations.forEach(signs => {
                 if (signs === "Sub") {
                     Display!.value += "−";
                 }
-            }
+            } 
         })
     })
 
@@ -218,6 +250,7 @@ Enter?.addEventListener("click", () => {
 // says the goodbye message on screen
 const Bye = document.querySelector<HTMLButtonElement>("#Bye")
  Bye?.addEventListener("click", ()=> {
+    Display!.style.color = "rgb(248, 248, 248)"
     Display!.value = "Sasageyoo!";
     Display?.classList.add("textanimation");
     setTimeout(Off, 2000);
@@ -272,6 +305,7 @@ function Enabled() {
 const greetings = ["Hola", "Kamusta", "Konichiwa", "Ciao", "Salaam", "Namaste", "Hallo", "Bonjour"]
 const Hello = document.querySelector<HTMLButtonElement>("#Hello")
 Hello?.addEventListener("click", () => {
+    Display!.style.color = "rgb(248, 248, 248)"
     input=true;
     Display!.value = greetings[Math.floor(Math.random() * 8)];
 });
