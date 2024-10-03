@@ -1,20 +1,21 @@
 
-@media (max-width:1600px) {
+@media (max-width:2500px) {
   #Calculator{
+    top: 12.5rem;
     border-top-left-radius: 2rem;
     border-top-right-radius: 2rem;
     position: relative;
-    left: 30rem;
+    left: 53rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
-    width: 27rem;
+    width: 33rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 3rem;
     border-bottom-left-radius: 7rem;
     border-bottom-right-radius: 7rem;
     box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
-    transform: scale(0.9);
+    transform: scale(1.4);
   }
 
   #CalcDisplay {
@@ -45,7 +46,265 @@
     font-family:monospace;
     font-weight: 500;
     transition: 0.2s ease-in-out;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    text-shadow: 0rem 0rem 0.2rem rgb(244, 246, 247),
+                 0rem 0rem 0.2rem rgb(32, 31, 31);
+                 background-color: #e5e5f7bc;
+    background-image:  linear-gradient(#44f78c4c 1px, transparent 0px), linear-gradient(to right, #3da75d5c 2rem, rgba(151, 193, 169, 0.552) 0.1rem);
+    background-size: 1rem 0.5rem;
+  }
+
+  #Display{ 
+    text-align: right;
+    width: 24rem;
+    height: 2.6rem;
+    font-size: 2.6rem;
+    left: 0.7rem;
+    top: 5.6rem;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.007);
+    border: none;
+    color: rgb(248, 248, 248);
+    transition: 0.2s ease-in;
+    text-shadow: 0rem 0rem 0.4rem rgb(121, 135, 149),
+                 0rem 0rem 0.4rem rgb(111, 119, 127),
+                 0rem 0rem 0.7rem rgb(18, 18, 18);
+  
+  }
+
+  #Buttons {
+    outline: none;
+    display: grid;
+    grid-template-columns: repeat(4,6rem);
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    top: 2.6rem;
+    left: 1.1rem;
+    position: relative;
+    width: 25rem;
+    height: 31.6rem;
+    background-color: rgba(63, 58, 58, 0.882);
+    padding-bottom: 1.3rem;
+    border-bottom-left-radius: 6rem;
+    border-bottom-right-radius: 6rem;
+    background-image: radial-gradient(#212321ad 0.05rem,  rgba(63, 58, 58, 0.608) 0.05rem);
+    background-size: 0.5rem 0.5rem;
+  }
+  button {
+    height: 6rem;
+    border-radius: 3rem;
+    font-size: 2rem;
+    font-family:'Courier New', Courier, monospace;
+    border-radius: 8rem;
+    transform: scale(0.8);
+    transition: 0.2s ease-in-out;
+    border: 0.1rem solid;
+    font-weight: 500;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(50, 45, 45),
+                 0.1rem 0.1rem 0.1rem rgb(153, 151, 151);
+    box-shadow: 0.3rem 0.2rem 0.2rem #343333,
+    0.3rem 0.2rem 0.4rem #000;
+  } 
+  
+  button:disabled {
+      background-color: #ccc; 
+      color: #000; 
+    
+  }
+  
+  button:hover {
+    transform: scale(0.85);
+    background-color:rgb(136, 133, 133);
+    font-size: 2rem;
+    font-weight: 800; 
+  }
+  
+  button:active {
+    transform: scale(0.83);
+  }
+  
+  #AC {
+    top: 0.5rem;
+    color: rgb(255, 153, 0);
+    width: 7.3rem ;
+    position: relative;
+    font-weight: bold;
+    transform: scale(0.7);
+    background-color: rgb(212, 151, 59);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(0, 0, 0),
+                0.2rem 0.2rem 0.2rem rgb(158, 92, 0),
+                0.3rem 0.3rem 0.2rem rgb(102, 60, 3);
+   }
+  
+  #AC:hover {
+    color: whitesmoke;
+  }
+  
+  #Hello {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 0.5rem;
+    height: 3rem;
+    width: 6rem;
+    position: relative;
+    background-color: rgb(243, 141, 0);
+    left: 0.5rem;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(249, 167, 5),
+    0.2rem 0.2rem 0.2rem rgb(158, 92, 0),
+    0.3rem 0.3rem 0.2rem rgb(102, 60, 3);
+  }
+  #Bye {
+    font-size: 1.3rem;
+    font-weight: 800;
+    top: 3rem;
+    right: 6rem;
+    width: 6rem;
+    height: 3rem;
+    position: relative;
+    background-color: rgb(228, 137, 9);
+    left: -5.5rem;
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(249, 167, 5),
+    0.2rem 0.2rem 0.2rem rgb(158, 92, 0),
+    0.3rem 0.3rem 0.2rem rgb(102, 60, 3);
+  }
+  
+  #Del {
+    top: 3rem;
+    right: 0.3rem;
+    position: relative;
+    height: 3rem;
+    width: 7rem;
+    font-weight: 800;
+    font-size: 1.5rem;
+  }
+  
+  #Del:hover{
+    color: whitesmoke;
+    transform: scale(0.83);
+  }
+  
+  #Del:active {
+    transform: scale(0.8);
+  }
+  
+  #b1, #b2, #b3, #b4, #b5, #b6, #b7, #b8, #b9, #b0, #Dec {
+    position: relative;
+    left: 0.5rem;
+    background-color: rgb(207, 208, 201);
+    text-shadow: 0.1rem 0.1rem 0.1rem rgb(50, 45, 45),
+    0.1rem 0.1rem 0.1rem rgb(153, 151, 151),
+    0.2rem 0.2rem 0.2rem rgb(95, 83, 78)
+  
+  }
+  
+  
+  #Equal{
+    position: relative;
+    right: 0.2rem;
+    width: 7.5rem;
+    font-weight: 800;
+    background-color: rgb(196, 124, 23);
+  }
+  
+  #Add, #Multiply, #Div, #Sub  {
+    position: relative;
+    left: 0.5rem;
+    font-weight: 800;
+    background-color: rgb(201, 204, 186);
+  
+  
+  }
+  
+  img{
+    position: fixed;
+    background-size: cover;
+    transform: scale(1.5);
+    
+  }
+  
+  .textanimation{
+    animation: revealText 1s linear;
+    overflow: hidden;
+  }
+  
+  .background{
+    opacity: 0;
+  }
+  
+  @keyframes revealText {
+    from {
+      transform: translateX(10.27rem);
+      width: 1rem;
+    }
+    to {
+      transform: translateX(10.27rem);
+      width: 12.8rem;
+    }
+  }
+  #cute{
+    transform: scale(0.15);
+    width: 27rem;
+    position: fixed;
+    top: -2.1rem;
+    left: 9rem;
+    opacity: 100%;
+  }
+ 
+  #cute1{
+    position: fixed;
+    top: -2.1rem;
+    left: 2rem;
+  }  
+}
+
+@media (max-width:1600px) {
+  #Calculator{
+    top: 1rem;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    position: relative;
+    left: 30rem;
+    background-color: rgb(212, 210, 208);
+    height: 40rem;
+    width: 27.1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    padding-bottom: 3rem;
+    border-bottom-left-radius: 7rem;
+    border-bottom-right-radius: 7rem;
+    box-shadow: 1rem 1.3rem 1rem 1.5rem rgba(32, 32, 32, 0.64);
+    transform: scale(0.9);
+  }
+
+  #CalcDisplay {
+    border-radius: 1.5rem;
+    width: 24.7rem;
+    left: 1.1rem;
+    top: 2rem;
+    height: 6.5rem;
+    position: relative;
+    border: 0.2rem solid #000;
+    background-color: #2c2c2f;
+    background-image: radial-gradient(#212321 0.05rem,  rgb(63, 58, 58) 0.05rem);
+    background-size: 0.2rem 0.2rem;
+  }
+
+  #History {
+    padding-right: 0.8rem;
+    padding-top: 0.2rem;
+    border-radius: 1rem;
+    height: 1.3rem;
+    left: 6.8rem;
+    text-align: right;
+    top: 0.6rem;
+    position: relative;
+    background-color: rgb(151, 193, 169);
+    width: 16.2rem;
+    color: rgb(7, 7, 8);
+    font-family:monospace;
+    font-weight: 500;
+    transition: 0.2s ease-in-out;
+    font-size: 1rem;
     text-shadow: 0rem 0rem 0.2rem rgb(244, 246, 247),
                  0rem 0rem 0.2rem rgb(32, 31, 31);
                  background-color: #e5e5f7bc;
@@ -266,7 +525,7 @@
     left: 19rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
-    width: 27rem;
+    width: 27.1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 3rem;
@@ -278,7 +537,7 @@
 
   #CalcDisplay {
     border-radius: 1.5rem;
-    width: 25rem;
+    width: 24.7rem;
     left: 1.1rem;
     top: 2rem;
     height: 6.5rem;
@@ -304,7 +563,7 @@
     font-family:monospace;
     font-weight: 500;
     transition: 0.2s ease-in-out;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-shadow: 0rem 0rem 0.2rem rgb(244, 246, 247),
                  0rem 0rem 0.2rem rgb(32, 31, 31);
                  background-color: #e5e5f7bc;
@@ -525,7 +784,7 @@
     left: 12.5rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
-    width: 27rem;
+    width: 27.1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 3rem;
@@ -537,7 +796,7 @@
 
   #CalcDisplay {
     border-radius: 1.5rem;
-    width: 25rem;
+    width: 24.7rem;
     left: 1.1rem;
     top: 2rem;
     height: 6.5rem;
@@ -563,7 +822,7 @@
     font-family:monospace;
     font-weight: 500;
     transition: 0.2s ease-in-out;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-shadow: 0rem 0rem 0.2rem rgb(244, 246, 247),
                  0rem 0rem 0.2rem rgb(32, 31, 31);
                  background-color: #e5e5f7bc;
@@ -784,7 +1043,7 @@
     left: -0.5rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
-    width: 27rem;
+    width: 27.1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 3rem;
@@ -796,7 +1055,7 @@
 
   #CalcDisplay {
     border-radius: 1.5rem;
-    width: 25rem;
+    width: 24.7rem;
     left: 1.1rem;
     top: 2rem;
     height: 6.5rem;
@@ -822,7 +1081,7 @@
     font-family:monospace;
     font-weight: 500;
     transition: 0.2s ease-in-out;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-shadow: 0rem 0rem 0.2rem rgb(244, 246, 247),
                  0rem 0rem 0.2rem rgb(32, 31, 31);
                  background-color: #e5e5f7bc;
@@ -1045,7 +1304,7 @@
     left: -1.7rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
-    width: 27rem;
+    width: 27.1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 3rem;
@@ -1057,7 +1316,7 @@
 
   #CalcDisplay {
     border-radius: 1.5rem;
-    width: 25rem;
+    width: 24.7rem;
     left: 1.1rem;
     top: 2rem;
     height: 6.5rem;
@@ -1083,7 +1342,7 @@
     font-family:monospace;
     font-weight: 500;
     transition: 0.2s ease-in-out;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-shadow: 0rem 0rem 0.2rem rgb(244, 246, 247),
                  0rem 0rem 0.2rem rgb(32, 31, 31);
                  background-color: #e5e5f7bc;
@@ -1304,7 +1563,7 @@
     left: -2rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
-    width: 27rem;
+    width: 27.1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 3rem;
@@ -1316,7 +1575,7 @@
 
   #CalcDisplay {
     border-radius: 1.5rem;
-    width: 25rem;
+    width: 24.7rem;
     left: 1.1rem;
     top: 2rem;
     height: 6.5rem;
@@ -1342,7 +1601,7 @@
     font-family:monospace;
     font-weight: 500;
     transition: 0.2s ease-in-out;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-shadow: 0rem 0rem 0.2rem rgb(244, 246, 247),
                  0rem 0rem 0.2rem rgb(32, 31, 31);
                  background-color: #e5e5f7bc;
@@ -1563,7 +1822,7 @@
     left: -2.7rem;
     background-color: rgb(212, 210, 208);
     height: 40rem;
-    width: 27rem;
+    width: 27.1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding-bottom: 3rem;
@@ -1575,7 +1834,7 @@
 
   #CalcDisplay {
     border-radius: 1.5rem;
-    width: 25rem;
+    width: 24.7rem;
     left: 1.1rem;
     top: 2rem;
     height: 6.5rem;
@@ -1601,7 +1860,7 @@
     font-family:monospace;
     font-weight: 500;
     transition: 0.2s ease-in-out;
-    font-size: 1.2rem;
+    font-size: 1rem;
     text-shadow: 0rem 0rem 0.2rem rgb(244, 246, 247),
                  0rem 0rem 0.2rem rgb(32, 31, 31);
                  background-color: #e5e5f7bc;
