@@ -294,7 +294,7 @@
 @media (max-width:431px) {
 
   #Calculator{
-    top: 5rem;
+    top: 3rem;
     left: -0.5rem;
     transform: scale(0.9);
   }
